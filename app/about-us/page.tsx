@@ -27,7 +27,7 @@ export default function AboutUsPage() {
               ABOUT US
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 font-inter max-w-3xl mx-auto">
-              Creating unforgettable events with a perfect blend of retro charm and modern professionalism
+              Creating unforgettable events with excellence and innovation
             </p>
           </div>
         </div>

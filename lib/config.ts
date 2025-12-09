@@ -5,7 +5,7 @@
 
 export const siteConfig = {
   name: "Jack & Co",
-  description: "Professional event management services with retro modern style",
+  description: "Professional event management services",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://jackandco.com",
   ogImage: "/og-image.jpg",
   links: {
