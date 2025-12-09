@@ -72,7 +72,7 @@ export default function HomePage() {
           backgroundImage: 'url(/background.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: 'scroll'
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0"></div>
@@ -183,7 +183,7 @@ export default function HomePage() {
           backgroundImage: 'url(/background.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
+          backgroundAttachment: 'scroll'
         }}
       >
         <div className="absolute inset-0 bg-black/60 z-0"></div>

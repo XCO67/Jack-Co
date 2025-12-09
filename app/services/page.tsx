@@ -43,7 +43,7 @@ export default function ServicesPage() {
               className="group perspective-1000"
               style={{ perspective: '1000px' }}
             >
-              <div className="relative w-full h-[400px] preserve-3d transition-transform duration-700 group-hover:rotate-y-180">
+              <div className="relative w-full h-[400px] preserve-3d transition-transform duration-700 group-hover:rotate-y-180 group-active:rotate-y-180 md:group-active:rotate-y-0">
                 {/* Front of Card - Image */}
                 <div className="absolute inset-0 w-full h-full backface-hidden rounded-2xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10">
                   <div className="aspect-[4/3] relative overflow-hidden h-full">

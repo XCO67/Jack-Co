@@ -1,7 +1,5 @@
 "use client"
 
-"use client"
-
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
@@ -12,6 +10,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isOnWhiteBackground, setIsOnWhiteBackground] = useState(true)
   const [lastScrollY, setLastScrollY] = useState(0)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     // Pages without white hero section should use white text/logo
@@ -94,21 +93,67 @@ export function Header() {
 
         {/* Mobile Menu Button */}
         <div className="md:hidden">
-          <button className={isOnWhiteBackground ? "text-gray-900" : "text-white"}>
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={isOnWhiteBackground ? "text-gray-900" : "text-white"}
+            aria-label="Toggle mobile menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            {isMobileMenuOpen ? (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              </svg>
+            )}
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10">
+          <nav className="container max-w-screen-2xl mx-auto px-4 py-4 space-y-4" aria-label="Mobile navigation">
+            {navigation.map((item) => {
+              const isActive = pathname === item.href
+              const textColor = isOnWhiteBackground
+                ? (isActive ? "text-gray-900" : "text-gray-700")
+                : (isActive ? "text-white" : "text-white/80")
+              
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`block text-base font-light font-inter tracking-wide transition-colors py-2 ${textColor} ${
+                    isActive ? "border-l-2 border-white pl-4" : "pl-4"
+                  }`}
+                >
+                  {item.label}
+                </Link>
+              )
+            })}
+          </nav>
+        </div>
+      )}
     </header>
   )
 }

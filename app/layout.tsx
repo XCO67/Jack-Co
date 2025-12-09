@@ -5,7 +5,14 @@ import { Inter } from "next/font/google"
 import { siteConfig } from "@/lib/config"
 import "./globals.css"
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+}
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteConfig.url),
   title: {
     default: siteConfig.name,
     template: `%s | ${siteConfig.name}`,
@@ -22,7 +29,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: siteConfig.name }],
   creator: siteConfig.name,
-  metadataBase: new URL(siteConfig.url),
   icons: {
     icon: [
       { url: "/logo-pattern-white.png?v=2", type: "image/png" },
