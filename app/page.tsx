@@ -97,12 +97,11 @@ export default function HomePage() {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white bg-white text-[oklch(0.25_0.08_250)] hover:bg-white/90 font-light font-inter relative group"
+              className="border-2 border-white bg-transparent text-white hover:bg-transparent hover:text-white font-light font-inter"
               asChild
             >
-              <Link href="/services" className="relative">
+              <Link href="/services">
                 View All Services
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[oklch(0.25_0.08_250)] transition-all duration-300 group-hover:w-3/4"></span>
               </Link>
             </Button>
           </div>
@@ -131,12 +130,11 @@ export default function HomePage() {
             <Button
               variant="outline"
               size="lg"
-              className="border-2 border-white bg-white text-[oklch(0.25_0.08_250)] hover:bg-white/90 font-light font-inter relative group"
+              className="border-2 border-white bg-transparent text-white hover:bg-transparent hover:text-white font-light font-inter"
               asChild
             >
-              <Link href="/portfolio" className="relative">
+              <Link href="/portfolio">
                 View Full Portfolio
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[oklch(0.25_0.08_250)] transition-all duration-300 group-hover:w-3/4"></span>
               </Link>
             </Button>
           </div>
