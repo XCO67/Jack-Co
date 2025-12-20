@@ -239,11 +239,11 @@ export default function ContactUsPage() {
                 disabled={isSubmitting}
                 className="w-full bg-white hover:bg-white/90 font-light font-inter relative group border-0 disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                <span className="relative flex items-center justify-center text-[oklch(0.25_0.08_250)] !text-[oklch(0.25_0.08_250)]">
+                <span className="relative inline-flex items-center justify-center text-[oklch(0.25_0.08_250)] !text-[oklch(0.25_0.08_250)]">
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                   {!isSubmitting && <Send className="ml-2 h-5 w-5 text-[oklch(0.25_0.08_250)]" />}
                   {!isSubmitting && (
-                    <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-[oklch(0.25_0.08_250)] transition-all duration-300 group-hover:w-3/4"></span>
+                    <span className="absolute bottom-0 left-0 right-0 h-[2px] bg-[oklch(0.25_0.08_250)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
                   )}
                 </span>
               </Button>
