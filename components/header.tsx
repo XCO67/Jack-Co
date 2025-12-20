@@ -56,20 +56,15 @@ export function Header() {
           <img
             src="/logo-pattern-white.png"
             alt="Jack & Co Logo"
-            className={`h-12 md:h-14 w-auto object-contain transition-all duration-300 ${
-              isOnWhiteBackground ? "brightness-0" : ""
-            }`}
+            className="h-12 md:h-14 w-auto object-contain transition-all duration-300"
           />
         </Link>
 
         {/* Navigation - Centered */}
         <nav className="hidden md:flex items-center space-x-8 absolute left-1/2 -translate-x-1/2" aria-label="Main navigation">
-          {navigation.map((item) => {
+          {navigation.slice(0, -1).map((item) => {
             const isActive = pathname === item.href
-            const textColor = isOnWhiteBackground 
-              ? (isActive ? "text-gray-900" : "text-gray-700 hover:text-gray-900")
-              : (isActive ? "text-white" : "text-white/80 hover:text-white")
-            const underlineColor = isOnWhiteBackground ? "bg-gray-900" : "bg-white"
+            const textColor = isActive ? "text-white" : "text-white/80 hover:text-white"
             
             return (
               <Link
@@ -80,7 +75,7 @@ export function Header() {
                 {item.label}
                 {/* Hover underline effect */}
                 <span
-                  className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.5 ${underlineColor} rounded-full transition-all duration-300 ${
+                  className={`absolute -bottom-2 left-1/2 -translate-x-1/2 h-0.5 bg-white rounded-full transition-all duration-300 ${
                     isActive
                       ? "w-full"
                       : "w-0 group-hover:w-full"
@@ -91,11 +86,24 @@ export function Header() {
           })}
         </nav>
 
+        {/* Contact Us Button - Right Side */}
+        <div className="hidden md:flex items-center">
+          <Link
+            href="/contact-us"
+            className="relative px-6 py-2.5 text-sm font-light font-inter tracking-wide transition-all duration-300 group text-[oklch(0.25_0.08_250)] bg-white border border-white hover:bg-white/90 rounded-full"
+          >
+            Contact Us
+            <span className={`absolute -bottom-1 left-1/2 -translate-x-1/2 h-0.5 rounded-full transition-all duration-300 bg-[oklch(0.25_0.08_250)] ${
+              pathname === "/contact-us" ? "w-3/4" : "w-0 group-hover:w-3/4"
+            }`} />
+          </Link>
+        </div>
+
         {/* Mobile Menu Button */}
         <div className="md:hidden">
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={isOnWhiteBackground ? "text-gray-900" : "text-white"}
+            className="text-white"
             aria-label="Toggle mobile menu"
             aria-expanded={isMobileMenuOpen}
           >
@@ -132,11 +140,9 @@ export function Header() {
       {isMobileMenuOpen && (
         <div className="md:hidden absolute top-full left-0 right-0 bg-black/95 backdrop-blur-sm border-t border-white/10">
           <nav className="container max-w-screen-2xl mx-auto px-4 py-4 space-y-4" aria-label="Mobile navigation">
-            {navigation.map((item) => {
+            {navigation.slice(0, -1).map((item) => {
               const isActive = pathname === item.href
-              const textColor = isOnWhiteBackground
-                ? (isActive ? "text-gray-900" : "text-gray-700")
-                : (isActive ? "text-white" : "text-white/80")
+              const textColor = isActive ? "text-white" : "text-white/80"
               
               return (
                 <Link
@@ -151,6 +157,20 @@ export function Header() {
                 </Link>
               )
             })}
+            {/* Contact Us Button in Mobile Menu */}
+            <div className="pt-2 border-t border-white/10">
+              <Link
+                href="/contact-us"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block w-full text-center px-6 py-3 text-sm font-light font-inter tracking-wide transition-all duration-300 rounded-full ${
+                  pathname === "/contact-us"
+                    ? "bg-white text-[oklch(0.25_0.08_250)]"
+                    : "bg-white text-[oklch(0.25_0.08_250)] border border-white hover:bg-white/90"
+                }`}
+              >
+                Contact Us
+              </Link>
+            </div>
           </nav>
         </div>
       )}

@@ -9,11 +9,11 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://jackandco.com",
   ogImage: "/og-image.jpg",
   links: {
-    instagram: "#",
+    instagram: "https://instagram.com/better.call.jack/",
     facebook: "#",
   },
   contact: {
-    email: "info@jackandco.com",
+    email: "info@jackzmusic.com",
     phone: "+965 XXXX XXXX",
     address: "Kuwait",
   },
@@ -21,9 +21,9 @@ export const siteConfig = {
 
 export const navigation = [
   { href: "/", label: "Home" },
-  { href: "/about-us", label: "About Us" },
   { href: "/services", label: "Services" },
   { href: "/portfolio", label: "Portfolio" },
+  { href: "/contact-us", label: "Contact Us" },
 ] as const
 
 export const services = [

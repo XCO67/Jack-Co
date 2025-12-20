@@ -24,8 +24,7 @@ export function PortfolioScroll() {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   loading={index < 2 ? "eager" : "lazy"}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-[oklch(0.25_0.08_250)]/60 backdrop-blur-sm">
                   <h3 className="text-lg font-rajdhani text-white">{event.name}</h3>
                 </div>
               </div>
@@ -44,8 +43,7 @@ export function PortfolioScroll() {
                   className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
-                <div className="absolute bottom-0 left-0 right-0 p-4">
+                <div className="absolute bottom-0 left-0 right-0 p-4 bg-[oklch(0.25_0.08_250)]/60 backdrop-blur-sm">
                   <h3 className="text-lg font-rajdhani text-white">{event.name}</h3>
                 </div>
               </div>

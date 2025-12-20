@@ -14,7 +14,7 @@ export default function PortfolioPage() {
           alt="Event background"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-[oklch(0.25_0.08_250)]/80"></div>
       </div>
 
       <Header />
@@ -40,7 +40,7 @@ export default function PortfolioPage() {
             return (
               <div
                 key={index}
-                className="group relative overflow-hidden rounded-2xl border border-white/10 hover:border-white/30 transition-all duration-500 hover:scale-[1.02] cursor-pointer"
+                className="group relative overflow-hidden rounded-2xl border border-white/20 hover:border-[oklch(0.65_0.25_250)]/50 transition-all duration-500 hover:scale-[1.02] cursor-pointer"
               >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
@@ -48,8 +48,6 @@ export default function PortfolioPage() {
                     alt={event.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-500"></div>
                   
                   {/* Content Overlay */}
                   <div className="absolute bottom-0 left-0 right-0 p-6">
